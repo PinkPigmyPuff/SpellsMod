@@ -3,14 +3,14 @@ package com.jasperpuffinv.spells;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.ActionResult;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Spells implements ModInitializer {
@@ -27,12 +27,14 @@ public class Spells implements ModInitializer {
         LAUNCH_KEY = KeyBindingHelper.registerKeyBinding(
                 new KeyBinding("key.mymod.launch", GLFW.GLFW_KEY_H, "key.categories.mymod"));
         // Register the tick event handler
+        AtomicInteger ticks = new AtomicInteger();
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            PlayerEntity player = MinecraftClient.getInstance().player;
+            if (player == null) return;
             if (LAUNCH_KEY.isPressed()) {
                 LOGGER.info("key pressed");
-                PlayerEntity player = MinecraftClient.getInstance().player;
-                player.fallDistance = 0;
-                player.addVelocity(0, 4, 0);
+                player.addVelocity(0, 1, 0);
+                player.setInvulnerable(true);
             }
         });
     }
