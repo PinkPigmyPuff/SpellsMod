@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "spells",
+  "version": "${version}",
+  "name": "Spells",
+  "description": "A simple mod for simple spells",
+  "authors": [
+    "Jasperpuff_Innovations"
+  ],
+  "contact": {
+    "website": "jasperpuffinovations.com"
+  },
+  "license": "MIT",
+  "icon": "assets/spells/icon.png",
+  "environment": "*",
+  "entrypoints": {
+
+    "main": [
+      "com.jasperpuffinv.spells.Spells"
+    ]
+  },
+  "mixins": [
+    "Spells.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.12",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
