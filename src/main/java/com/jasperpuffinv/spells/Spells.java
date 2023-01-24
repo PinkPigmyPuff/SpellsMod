@@ -1,5 +1,6 @@
 package com.jasperpuffinv.spells;
 
+import com.jasperpuffinv.spells.spellCode.ExplodeSpell;
 import com.jasperpuffinv.spells.spellCode.LaunchSpell;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -29,5 +30,8 @@ public class Spells implements ModInitializer {
 
         // Launch Spell
         LaunchSpell.init();
+
+        //Explode Spell
+        ExplodeSpell.init();
     }
 }
