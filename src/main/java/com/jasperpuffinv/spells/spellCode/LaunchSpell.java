@@ -1,11 +1,11 @@
 package com.jasperpuffinv.spells.spellCode;
 
-import com.jasperpuffinv.spells.Spells;
+import com.jasperpuffinv.spells.Main;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 
-import static com.jasperpuffinv.spells.Spells.LAUNCH_KEY;
+import static com.jasperpuffinv.spells.Main.LAUNCH_KEY;
 
 public class LaunchSpell {
     public static void init() {
@@ -13,10 +13,11 @@ public class LaunchSpell {
     }
 
     private static void launchSpell(MinecraftClient client) {
+
         PlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;
         if (LAUNCH_KEY.isPressed()) {
-            Spells.LOGGER.info("key pressed");
+            Main.LOGGER.info("key pressed");
             player.addVelocity(0, 1, 0);
         }
     }
