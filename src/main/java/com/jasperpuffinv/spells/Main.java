@@ -17,6 +17,7 @@ public class Main implements ModInitializer {
 
     public static KeyBinding LAUNCH_KEY;
     public static KeyBinding EXPLODE_KEY;
+    public static KeyBinding GRAV_KEY;
 
     @Override
     public void onInitialize() {
@@ -27,6 +28,8 @@ public class Main implements ModInitializer {
                 new KeyBinding("key.spells.launch", GLFW.GLFW_KEY_H, "key.categories.spells"));
         EXPLODE_KEY = KeyBindingHelper.registerKeyBinding(
                 new KeyBinding("key.spells.explode", GLFW.GLFW_KEY_K,"key.categories.spells"));
+        GRAV_KEY = KeyBindingHelper.registerKeyBinding(
+                new KeyBinding("key.spells.grav",GLFW.GLFW_KEY_J,"key.categories.spells"));
 
         // Launch Spell
         LaunchSpell.init();
