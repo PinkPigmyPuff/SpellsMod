@@ -6,5 +6,4 @@ import org.spongepowered.asm.mixin.Overwrite;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
-    @Overwrite()
 }

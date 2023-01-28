@@ -1,5 +1,7 @@
 package com.jasperpuffinv.spells;
 
+import com.jasperpuffinv.spells.item.ModItemGroup;
+import com.jasperpuffinv.spells.item.ModItems;
 import com.jasperpuffinv.spells.spellCode.ExplodeSpell;
 import com.jasperpuffinv.spells.spellCode.LaunchSpell;
 import net.fabricmc.api.ModInitializer;
@@ -19,9 +21,15 @@ public class Main implements ModInitializer {
     public static KeyBinding EXPLODE_KEY;
     public static KeyBinding GRAV_KEY;
 
+    //Entity Registration
+
     @Override
     public void onInitialize() {
         LOGGER.info("mod loaed");
+
+        ModItemGroup.registerItemGroup();
+
+        ModItems.registerModItems();
 
         //Keybinds
         LAUNCH_KEY = KeyBindingHelper.registerKeyBinding(
