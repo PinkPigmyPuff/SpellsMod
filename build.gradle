@@ -17,6 +17,10 @@ repositories {
     maven {
         url "https://maven.shedaniel.me/"
     }
+    maven {
+        name = "CottonMC"
+        url = "https://server.bbkr.space/artifactory/libs-release"
+    }
 }
 
 dependencies {
@@ -28,6 +32,7 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
+    modImplementation include("io.github.cottonmc:LibGui:6.5.1+1.19.3")
 
     modImplementation 'org.lwjgl:lwjgl:3.2.3'
     modImplementation 'org.lwjgl:lwjgl-glfw:3.2.3'
