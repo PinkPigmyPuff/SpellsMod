@@ -39,7 +39,7 @@ public class BeginnerStaff extends Item {
             MinecraftClient.getInstance().setScreen(new BeginnerScreen(new BeginnerGui()));
         } else {
             if (BeginnerGui.isExplode) {
-                world.createExplosion(null, user.getX(), user.getY(), user.getZ(), 4f, World.ExplosionSourceType.BLOCK);
+                world.createExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 4f, World.ExplosionSourceType.BLOCK);
                 Main.LOGGER.info("explode");
                 user.getItemCooldownManager().set(this, 20);
             } else if (BeginnerGui.isLaunch) {
