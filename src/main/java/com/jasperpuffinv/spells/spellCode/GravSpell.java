@@ -18,6 +18,7 @@ public class GravSpell {
         boolean initialGravity = false;
         if (player == null) return;
         if (GRAV_KEY.isPressed()) {
+
             LOGGER.info("grav");
             //Outdated API rip ((RotatableEntityAccessor) player).gravitychanger$setGravityDirection(Direction.UP,false);
         }

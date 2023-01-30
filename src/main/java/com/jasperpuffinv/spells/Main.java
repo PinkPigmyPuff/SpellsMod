@@ -1,5 +1,6 @@
 package com.jasperpuffinv.spells;
 
+import com.jasperpuffinv.effects.ModEffects;
 import com.jasperpuffinv.spells.item.ModItemGroup;
 import com.jasperpuffinv.spells.item.ModItems;
 import com.jasperpuffinv.spells.spellCode.ExplodeSpell;
@@ -31,6 +32,7 @@ public class Main implements ModInitializer {
 
         ModItems.registerModItems();
 
+        ModEffects.registerEffects();
         //Keybinds
         LAUNCH_KEY = KeyBindingHelper.registerKeyBinding(
                 new KeyBinding("key.spells.launch", GLFW.GLFW_KEY_H, "key.categories.spells"));
