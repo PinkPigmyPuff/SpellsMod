@@ -1,7 +1,7 @@
-package com.jasperpuffinv.spells.item;
+package com.jasperpuffinv.spellsmod.item;
 
-import com.jasperpuffinv.spells.Main;
-import com.jasperpuffinv.spells.item.custom.BeginnerStaff;
+import com.jasperpuffinv.spellsmod.Main;
+import com.jasperpuffinv.spellsmod.item.custom.BeginnerStaff;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;

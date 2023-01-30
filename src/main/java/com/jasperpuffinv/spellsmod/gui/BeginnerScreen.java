@@ -1,6 +1,5 @@
-package com.jasperpuffinv.spells.gui;
+package com.jasperpuffinv.spellsmod.gui;
 
-import com.jasperpuffinv.spells.item.custom.BeginnerStaff;
 import io.github.cottonmc.cotton.gui.GuiDescription;
 import io.github.cottonmc.cotton.gui.client.CottonClientScreen;
 

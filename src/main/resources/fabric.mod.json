@@ -16,7 +16,10 @@
   "entrypoints": {
 
     "main": [
-      "com.jasperpuffinv.spells.Main"
+      "com.jasperpuffinv.spellsmod.Main"
+    ],
+    "client": [
+      "com.jasperpuffinv.spellsmod.ClientMain"
     ]
   },
   "mixins": [

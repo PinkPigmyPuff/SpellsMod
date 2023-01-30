@@ -1,14 +1,10 @@
-package com.jasperpuffinv.spells.spellCode;
+package com.jasperpuffinv.spellsmod.spellCode;
 
-import com.jasperpuffinv.spells.Main;
-import io.netty.buffer.Unpooled;
+import com.jasperpuffinv.spellsmod.Main;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
 
 public class ExplodeSpell {
     public static void init() {
