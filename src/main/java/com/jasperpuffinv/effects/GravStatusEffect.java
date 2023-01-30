@@ -14,11 +14,7 @@ public class GravStatusEffect extends StatusEffect {
 
     @Override
     public void applyUpdateEffect(LivingEntity entity, int level) {
-        if (!entity.world.isClient && !entity.isOnGround()) {
-            entity.move(MovementType.SELF, new Vec3d(0, 1, 0));
-            entity.velocityModified = true;
-            Main.LOGGER.info("sdfjls");
-        }
+        entity.addVelocity(0, .08, 0);
     }
 //    @SubscribeEvent
 //    public void doTick(LivingUpdateEvent event)
