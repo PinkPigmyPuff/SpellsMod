@@ -12,6 +12,8 @@ import net.minecraft.util.Identifier;
 public class BeginnerGui extends LightweightGuiDescription {
     public static boolean isExplode = false;
     public static boolean isLaunch = true;
+
+    public static boolean isGrav = false;
     public BeginnerGui() {
         WGridPanel root = new WGridPanel();
         setRootPanel(root);
@@ -21,12 +23,16 @@ public class BeginnerGui extends LightweightGuiDescription {
         WSprite icon = new WSprite(new Identifier("minecraft:textures/item/redstone.png"));
         root.add(icon, 0, 2, 1, 1);
 
-        WButton button = new WButton(Text.literal("Launch vs Explode"));
+        WButton button = new WButton(Text.literal("Launch vs Explode vs Grav"));
         button.setOnClick(() -> {
             Main.LOGGER.info("switched");
             if (isExplode) {
                 isExplode = false; isLaunch = true;
-            } else {isExplode = true; isLaunch = false;}
+            } else if (isLaunch) {
+                isLaunch = false; isGrav = true;
+            } else if (isGrav) {
+                isGrav = false; isExplode = true;
+            }
         });
         root.add(button, 0, 3, 4, 1);
 

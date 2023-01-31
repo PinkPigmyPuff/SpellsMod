@@ -14,7 +14,7 @@ public class GravStatusEffect extends StatusEffect {
 
     @Override
     public void applyUpdateEffect(LivingEntity entity, int level) {
-        entity.addVelocity(0, .08, 0);
+        entity.addVelocity(0, .085, 0);
     }
 //    @SubscribeEvent
 //    public void doTick(LivingUpdateEvent event)
