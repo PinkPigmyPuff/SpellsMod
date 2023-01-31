@@ -1,12 +1,11 @@
-package com.jasperpuffinv.spells.spellCode;
+package com.jasperpuffinv.spellsmod.spellCode;
 
-import com.jasperpuffinv.spells.Main;
+import com.jasperpuffinv.spellsmod.Main;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 
-import static com.jasperpuffinv.spells.Main.LAUNCH_KEY;
+import static com.jasperpuffinv.spellsmod.Main.LAUNCH_KEY;
 
 public class LaunchSpell {
     public static boolean isFalling = false;
@@ -21,7 +20,6 @@ public class LaunchSpell {
         if (LAUNCH_KEY.isPressed()) {
             Main.LOGGER.info("key pressed");
             player.addVelocity(0, 1, 0);
-
         }
     }
 }

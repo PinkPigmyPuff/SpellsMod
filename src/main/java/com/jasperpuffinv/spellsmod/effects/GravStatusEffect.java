@@ -1,6 +1,6 @@
-package com.jasperpuffinv.effects;
+package com.jasperpuffinv.spellsmod.effects;
 
-import com.jasperpuffinv.spells.Main;
+import com.jasperpuffinv.spellsmod.Main;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.effect.StatusEffect;
