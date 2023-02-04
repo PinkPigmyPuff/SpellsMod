@@ -5,6 +5,9 @@ import com.jasperpuffinv.spellsmod.effects.ModEffects;
 import com.jasperpuffinv.spellsmod.entity.projectiles.ExplodingProjectileEntity;
 import com.jasperpuffinv.spellsmod.gui.BeginnerGui;
 import com.jasperpuffinv.spellsmod.gui.BeginnerScreen;
+import com.jasperpuffinv.spellsmod.spellCode.ExplodeSpell;
+import com.jasperpuffinv.spellsmod.spellCode.GravSpell;
+import com.jasperpuffinv.spellsmod.spellCode.LaunchSpell;
 import com.jasperpuffinv.spellsmod.util.Raycast;
 import com.jasperpuffinv.util.RC;
 import net.minecraft.block.Block;
@@ -51,45 +54,17 @@ public class BeginnerStaff extends Item {
 
         } else {
             if (BeginnerGui.isExplode) {
-
-                /*
-                assert client.player != null;
-
-                // Raycast a line from the player, and store the HitData
-                HitResult hit = user.raycast(300, 1, true);
-                switch (hit.getType()) {
-                    case MISS -> client.player.networkHandler.sendChatMessage("Missed!");
-                    case BLOCK -> {
-                        BlockHitResult blockHit = (BlockHitResult) hit;
-                        BlockPos pos = blockHit.getBlockPos();
-                        BlockState blockState = client.world.getBlockState(pos);
-                        Block block = blockState.getBlock();
-                        String message = block.toString() + " at: " + pos.toString();
-                        client.player.networkHandler.sendChatMessage(message);
-                    }
-                    case ENTITY -> {
-                        EntityHitResult entityHit = (EntityHitResult) hit;
-                        Entity entity = entityHit.getEntity();
-                        BlockPos entityBlockPos = entity.getBlockPos();
-                        String EMessage = entity + "at: " + entityBlockPos.toString();
-                        client.player.networkHandler.sendChatMessage(EMessage);
-                    }
-                 }
-                */
                 Vec3d pos = RC.lookLocation(world, user);
-                world.createExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 4f, World.ExplosionSourceType.BLOCK);
-                Main.LOGGER.info("explode");
+                ExplodeSpell.explode(world, pos);
                 user.getItemCooldownManager().set(this, 20);
 
             } else if (BeginnerGui.isLaunch) {
-                user.addVelocity(0, 1, 0);
-                Main.LOGGER.info("launch");
+                LaunchSpell.launch(user);
                 user.getItemCooldownManager().set(this, 20);
             }
 
             else if (BeginnerGui.isGrav) {
                 List effected = RC.effectedList(world, user, 100);
-
                 /* Doesn't work for some reason
                 for (int i = 0; i < effected.size(); i++) {
                     //LivingEntity ent = effectedList.get(i);
@@ -100,7 +75,7 @@ public class BeginnerStaff extends Item {
                 */
                 //g = GravStatusEffect("GRAV")
                 //user.addStatusEffect(ModEffects.GRAV);
-                user.addStatusEffect(new StatusEffectInstance(ModEffects.GRAV, 200, 2));
+                GravSpell.levitate(user, 100, 2);
             }
         }
         return super.use(world, user, hand);

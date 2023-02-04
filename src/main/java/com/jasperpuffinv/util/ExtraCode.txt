@@ -1,0 +1,22 @@
+assert client.player != null;
+
+// Raycast a line from the player, and store the HitData
+HitResult hit = user.raycast(300, 1, true);
+switch (hit.getType()) {
+    case MISS -> client.player.networkHandler.sendChatMessage("Missed!");
+    case BLOCK -> {
+        BlockHitResult blockHit = (BlockHitResult) hit;
+        BlockPos pos = blockHit.getBlockPos();
+        BlockState blockState = client.world.getBlockState(pos);
+        Block block = blockState.getBlock();
+        String message = block.toString() + " at: " + pos.toString();
+        client.player.networkHandler.sendChatMessage(message);
+    }
+    case ENTITY -> {
+        EntityHitResult entityHit = (EntityHitResult) hit;
+        Entity entity = entityHit.getEntity();
+        BlockPos entityBlockPos = entity.getBlockPos();
+        String EMessage = entity + "at: " + entityBlockPos.toString();
+        client.player.networkHandler.sendChatMessage(EMessage);
+    }
+ }

@@ -3,6 +3,7 @@ package com.jasperpuffinv.spellsmod.spellCode;
 import com.jasperpuffinv.spellsmod.Main;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 
 import static com.jasperpuffinv.spellsmod.Main.LAUNCH_KEY;
@@ -13,6 +14,10 @@ public class LaunchSpell {
         ClientTickEvents.END_CLIENT_TICK.register(LaunchSpell::launchSpell);
     }
 
+    public static void launch(LivingEntity entities) {
+        entities.addVelocity(0, 1, 0);
+        Main.LOGGER.info("launch");
+    }
     private static void launchSpell(MinecraftClient client) {
 
         PlayerEntity player = MinecraftClient.getInstance().player;
