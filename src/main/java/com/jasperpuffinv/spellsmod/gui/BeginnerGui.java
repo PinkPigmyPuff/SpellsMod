@@ -1,6 +1,6 @@
-package com.jasperpuffinv.spells.gui;
+package com.jasperpuffinv.spellsmod.gui;
 
-import com.jasperpuffinv.spells.Main;
+import com.jasperpuffinv.spellsmod.Main;
 import io.github.cottonmc.cotton.gui.client.LightweightGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.*;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;

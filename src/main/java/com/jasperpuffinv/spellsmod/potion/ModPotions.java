@@ -1,7 +1,7 @@
-package com.jasperpuffinv.potion;
+package com.jasperpuffinv.spellsmod.potion;
 
-import com.jasperpuffinv.effects.ModEffects;
-import com.jasperpuffinv.spells.Main;
+import com.jasperpuffinv.spellsmod.effects.ModEffects;
+import com.jasperpuffinv.spellsmod.Main;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.potion.Potion;
 import net.minecraft.registry.Registries;

@@ -1,13 +1,11 @@
-package com.jasperpuffinv.spells.spellCode;
+package com.jasperpuffinv.spellsmod.spellCode;
 
-import com.jasperpuffinv.spells.Main;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-import static com.jasperpuffinv.spells.Main.GRAV_KEY;
-import static com.jasperpuffinv.spells.Main.LOGGER;
+import static com.jasperpuffinv.spellsmod.Main.GRAV_KEY;
+import static com.jasperpuffinv.spellsmod.Main.LOGGER;
 
 public class GravSpell {
 
