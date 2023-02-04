@@ -1,10 +1,10 @@
 package com.jasperpuffinv.spells.item.custom;
 
-import com.jasperpuffinv.effects.GravStatusEffect;
-import com.jasperpuffinv.effects.ModEffects;
-import com.jasperpuffinv.spells.Main;
-import com.jasperpuffinv.spells.gui.BeginnerGui;
-import com.jasperpuffinv.spells.gui.BeginnerScreen;
+import com.jasperpuffinv.spellsmod.effects.GravStatusEffect;
+import com.jasperpuffinv.spellsmod.effects.ModEffects;
+import com.jasperpuffinv.spellsmod.Main;
+import com.jasperpuffinv.spellsmod.gui.BeginnerGui;
+import com.jasperpuffinv.spellsmod.gui.BeginnerScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.input.KeyboardInput;
 import net.minecraft.entity.LivingEntity;
