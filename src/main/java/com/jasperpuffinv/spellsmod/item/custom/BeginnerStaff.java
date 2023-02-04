@@ -5,6 +5,8 @@ import com.jasperpuffinv.spellsmod.effects.ModEffects;
 import com.jasperpuffinv.spellsmod.entity.projectiles.ExplodingProjectileEntity;
 import com.jasperpuffinv.spellsmod.gui.BeginnerGui;
 import com.jasperpuffinv.spellsmod.gui.BeginnerScreen;
+import com.jasperpuffinv.spellsmod.util.Raycast;
+import com.jasperpuffinv.util.RC;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
@@ -36,17 +38,6 @@ public class BeginnerStaff extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         MinecraftClient client = MinecraftClient.getInstance();
         Main.LOGGER.info("item oh yeah");
-
-        // Raycast a line from the player, and store the HitData
-        HitResult hit = user.raycast(300, 1, true);
-        // get the coordinate position of the HitData
-        Vec3d pos = hit.getPos();
-        Main.LOGGER.info(pos.toString());
-        Box box = Box.from(pos);
-        box.expand(100);
-        Main.LOGGER.info(box.toString());
-        List effectedList  = world.getOtherEntities(user, box);
-        Main.LOGGER.info(effectedList.toString());
 
         if (user.isSneaking()) {
             MinecraftClient.getInstance().setScreen(new BeginnerScreen(new BeginnerGui()));
@@ -85,6 +76,7 @@ public class BeginnerStaff extends Item {
                     }
                  }
                 */
+                Vec3d pos = RC.lookLocation(world, user);
                 world.createExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 4f, World.ExplosionSourceType.BLOCK);
                 Main.LOGGER.info("explode");
                 user.getItemCooldownManager().set(this, 20);
@@ -96,13 +88,16 @@ public class BeginnerStaff extends Item {
             }
 
             else if (BeginnerGui.isGrav) {
+                List effected = RC.effectedList(world, user, 100);
 
-                for (int i = 0; i < effectedList.size(); i++) {
+                /* Doesn't work for some reason
+                for (int i = 0; i < effected.size(); i++) {
                     //LivingEntity ent = effectedList.get(i);
                     //ent.addVelocity(0, .08, 0);
                     Main.LOGGER.info("Adding grav to: ");
-                    Main.LOGGER.info(effectedList.get(i).toString());
+                    Main.LOGGER.info(effected.get(i).toString());
                 }
+                */
                 //g = GravStatusEffect("GRAV")
                 //user.addStatusEffect(ModEffects.GRAV);
                 user.addStatusEffect(new StatusEffectInstance(ModEffects.GRAV, 200, 2));
