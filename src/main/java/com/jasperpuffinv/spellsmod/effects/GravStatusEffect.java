@@ -7,14 +7,21 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.util.math.Vec3d;
 
+import java.util.logging.Logger;
+
 public class GravStatusEffect extends StatusEffect {
+    double grav = 0.08;
+    double CounterGrav = grav * 2;
+
     public GravStatusEffect(StatusEffectCategory statusEffectCategory, int color) {
         super(statusEffectCategory, color);
     }
 
     @Override
     public void applyUpdateEffect(LivingEntity entity, int level) {
-        entity.addVelocity(0, .085, 0);
+        entity.addVelocity(0, CounterGrav, 0);
+
+
     }
 //    @SubscribeEvent
 //    public void doTick(LivingUpdateEvent event)

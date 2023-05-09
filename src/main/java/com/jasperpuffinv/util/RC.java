@@ -13,7 +13,7 @@ import java.util.List;
 public class RC {
     @Subscribe
     public static Vec3d lookLocation(World world, PlayerEntity user) {
-        // Raycast a line from the player, and store the HitData
+        // Ray cast a line from the player, and store the HitData
         HitResult hit = user.raycast(300, 1, true);
         // get the coordinate position of the HitData
         Vec3d pos = hit.getPos();
@@ -21,12 +21,13 @@ public class RC {
         return pos;
     }
 
-    public static List effectedList(World world, PlayerEntity user, int boxSize){
+    public static Box lookArea(World world, PlayerEntity user, int boxSize){
+        Main.LOGGER.info("In lookArea");
         Box box = Box.from(lookLocation(world, user));
+        Main.LOGGER.info("Created Box");
         box.expand(boxSize);
+        Main.LOGGER.info("Exp[anded box");
         Main.LOGGER.info(box.toString());
-        List effectedList  = world.getOtherEntities(user, box);
-        Main.LOGGER.info(effectedList.toString());
-        return effectedList;
+        return box;
     }
 }
